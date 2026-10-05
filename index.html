@@ -7,8 +7,8 @@
   <style>
     /* ==========================================================
        SALESTORM - MINIMALIST MONOCHROME SYSTEM DESIGN SIMULATION
-       Palette: Pure White, Ink Black (#111), Neutral Grays (#e5e5e5, #666)
-       No gradients. Crisp borders. High readability.
+       Style: Clean white background, black/gray borders, NO gradients,
+       crisp typography, large readable text, professional hackathon style.
        ========================================================== */
     :root {
       --bg: #ffffff;
@@ -16,7 +16,7 @@
       --surface-subtle: #f8f8f8;
       --surface-accent: #f0f0f0;
       --border: #111111;
-      --border-subtle: #d0d0d0;
+      --border-subtle: #cccccc;
       --border-light: #e5e5e5;
       --text: #111111;
       --text-muted: #555555;
@@ -69,9 +69,9 @@
       gap: 8px;
       background: var(--badge-bg);
       color: var(--badge-text);
-      padding: 4px 12px;
+      padding: 5px 14px;
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       font-family: var(--font-mono);
@@ -82,13 +82,13 @@
       height: 8px;
       background: #ffffff;
       border-radius: 50%;
-      animation: pulse 1.5s infinite;
+      animation: pulse 1.4s infinite;
     }
 
     @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.3; }
-      100% { opacity: 1; }
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
     .hackathon-tag {
@@ -99,7 +99,7 @@
     }
 
     h1.project-title {
-      font-size: 28px;
+      font-size: 30px;
       font-weight: 900;
       letter-spacing: -0.5px;
       margin-bottom: 8px;
@@ -107,9 +107,9 @@
     }
 
     .simulation-lead {
-      font-size: 17px;
-      font-weight: 600;
-      color: var(--text);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-muted);
       margin-bottom: 16px;
     }
 
@@ -121,7 +121,7 @@
     }
 
     .metric-card {
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       padding: 12px 16px;
       background: var(--surface-subtle);
     }
@@ -133,11 +133,12 @@
       font-family: var(--font-mono);
       color: var(--text-muted);
       margin-bottom: 4px;
+      font-weight: 700;
     }
 
     .metric-val {
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 900;
       font-family: var(--font-mono);
       color: var(--text);
     }
@@ -167,14 +168,15 @@
       font-weight: 800;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .stage-counter-pill {
       background: var(--border);
       color: #ffffff;
-      padding: 2px 10px;
-      font-size: 14px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 800;
     }
 
     .btn-group {
@@ -194,7 +196,7 @@
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       transition: all 0.15s ease;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -207,6 +209,17 @@
 
     button.btn:active {
       transform: translateY(1px);
+    }
+
+    button.btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      border-color: var(--border-subtle);
+      color: var(--text-muted);
+    }
+    button.btn:disabled:hover {
+      background: var(--surface);
+      color: var(--text-muted);
     }
 
     button.btn-primary {
@@ -222,7 +235,7 @@
     /* AUTO PROGRESS BAR */
     .timer-container {
       width: 100%;
-      height: 4px;
+      height: 5px;
       background: var(--border-light);
       position: relative;
       overflow: hidden;
@@ -232,7 +245,7 @@
       height: 100%;
       background: var(--border);
       width: 0%;
-      transition: width 0.1s linear;
+      transition: width 0.08s linear;
     }
 
     /* STAGE SELECTOR TABS */
@@ -255,7 +268,7 @@
       transition: all 0.15s ease;
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
     }
 
     .stage-tab:hover {
@@ -271,7 +284,7 @@
     }
 
     .stage-tab-num {
-      font-weight: 800;
+      font-weight: 900;
       font-size: 12px;
     }
 
@@ -282,12 +295,12 @@
       text-overflow: ellipsis;
     }
 
-    /* MAIN STAGE CONTAINER */
+    /* MAIN STAGE VIEWPORT */
     .stage-viewport {
       border: 2px solid var(--border);
       padding: 32px;
       background: var(--surface);
-      min-height: 520px;
+      min-height: 540px;
       position: relative;
     }
 
@@ -300,7 +313,7 @@
     .stage-kicker {
       font-family: var(--font-mono);
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 1.5px;
@@ -308,7 +321,7 @@
     }
 
     .stage-title {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.5px;
@@ -318,49 +331,17 @@
     .stage-summary {
       font-size: 15px;
       color: var(--text-muted);
-      max-width: 900px;
+      max-width: 950px;
     }
 
-    /* GENERIC FLOW BLOCKS & DIAGRAMS */
-    .flow-horizontal {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 20px 0;
-    }
-
-    .flow-vertical {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      margin: 20px 0;
-    }
-
-    .flow-node {
-      border: 1.5px solid var(--border);
-      padding: 10px 14px;
-      background: var(--surface);
+    /* FLOW DIAGRAM UTILITIES */
+    .flow-arrow-down {
       font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 700;
-      text-align: center;
-      min-width: 130px;
-      transition: all 0.2s ease;
-    }
-
-    .flow-node.highlight {
-      background: var(--border);
-      color: #ffffff;
-    }
-
-    .flow-arrow {
-      font-family: var(--font-mono);
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 900;
       color: var(--text);
+      text-align: center;
+      line-height: 1.2;
       user-select: none;
     }
 
@@ -380,18 +361,19 @@
 
     .req-card-label {
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--text-muted);
       margin-bottom: 6px;
+      font-weight: 700;
     }
 
     .req-card-value {
-      font-size: 28px;
+      font-size: 30px;
       font-weight: 900;
       font-family: var(--font-mono);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .req-card-desc {
@@ -408,18 +390,18 @@
 
     .funnel-headline {
       font-family: var(--font-mono);
-      font-size: 18px;
-      font-weight: 800;
+      font-size: 20px;
+      font-weight: 900;
       text-align: center;
       margin-bottom: 16px;
-      padding: 10px;
+      padding: 12px;
       background: var(--surface-subtle);
-      border: 1px solid var(--border-light);
+      border: 1px solid var(--border);
     }
 
     .funnel-canvas-wrap {
       width: 100%;
-      height: 140px;
+      height: 150px;
       border: 1px solid var(--border-light);
       position: relative;
       overflow: hidden;
@@ -438,36 +420,45 @@
       flex-direction: column;
       align-items: center;
       gap: 8px;
-      margin: 20px 0;
+      margin: 20px auto;
+      max-width: 580px;
     }
 
     .arch-level-box {
       border: 1.5px solid var(--border);
-      padding: 14px 28px;
-      min-width: 320px;
-      text-align: center;
+      padding: 14px 24px;
+      width: 100%;
+      text-align: left;
       font-family: var(--font-mono);
-      font-weight: 700;
       font-size: 14px;
       background: var(--surface);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
+      transition: all 0.2s ease;
     }
 
-    .arch-level-box span.role {
+    .arch-level-box .title {
+      font-weight: 800;
+    }
+
+    .arch-level-box .role {
       font-size: 11px;
       color: var(--text-muted);
-      font-weight: 400;
+      font-weight: 500;
+      text-align: right;
     }
 
     .arch-level-box.active-pulse {
-      box-shadow: 0 0 0 2px var(--border);
-      background: var(--surface-accent);
+      background: var(--border);
+      color: #ffffff;
+    }
+    .arch-level-box.active-pulse .role {
+      color: #cccccc;
     }
 
-    /* STAGE 3: CONCURRENCY & INVENTORY (CRITICAL) */
+    /* STAGE 3: CONCURRENCY & INVENTORY (MOST IMPORTANT) */
     .stage3-container {
       display: flex;
       flex-direction: column;
@@ -482,7 +473,7 @@
 
     .c-meter {
       border: 1.5px solid var(--border);
-      padding: 14px;
+      padding: 16px;
       background: var(--surface-subtle);
     }
 
@@ -497,18 +488,21 @@
       text-transform: uppercase;
       color: var(--text-muted);
       margin-bottom: 4px;
+      font-weight: 700;
     }
 
     .c-num {
       font-family: var(--font-mono);
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 900;
+      letter-spacing: -0.5px;
     }
 
     .c-status {
       font-size: 12px;
       margin-top: 4px;
       font-weight: 600;
+      color: var(--text-muted);
     }
 
     .guarantee-bar {
@@ -524,18 +518,19 @@
 
     .guarantee-title {
       font-family: var(--font-mono);
-      font-weight: 800;
+      font-weight: 900;
       font-size: 15px;
     }
 
     .stock-badge {
       display: inline-block;
-      padding: 4px 12px;
-      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border: 1.5px solid var(--border);
       font-family: var(--font-mono);
       font-weight: 800;
       font-size: 14px;
       background: var(--surface-accent);
+      transition: all 0.2s ease;
     }
 
     .concurrency-pipeline {
@@ -548,11 +543,12 @@
       display: flex;
       align-items: center;
       border: 1px solid var(--border);
-      padding: 8px 14px;
+      padding: 9px 14px;
       background: var(--surface);
       font-family: var(--font-mono);
       font-size: 13px;
       gap: 14px;
+      transition: background 0.2s ease;
     }
 
     .pipe-num {
@@ -562,13 +558,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
+      font-weight: 900;
       font-size: 11px;
     }
 
     .pipe-name {
-      font-weight: 700;
-      min-width: 200px;
+      font-weight: 800;
+      min-width: 210px;
     }
 
     .pipe-role {
@@ -613,28 +609,28 @@
 
     .path-tag {
       font-size: 11px;
-      padding: 2px 8px;
+      padding: 3px 8px;
       border: 1px solid var(--border);
+      font-weight: 700;
     }
 
     .seq-step {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 8px 12px;
+      padding: 9px 12px;
       border: 1px solid var(--border-subtle);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       font-family: var(--font-mono);
       font-size: 12px;
       background: var(--surface-subtle);
+      transition: all 0.2s ease;
     }
 
-    .seq-arrow-down {
-      text-align: center;
-      font-family: var(--font-mono);
-      font-size: 14px;
-      margin: -4px 0 4px 0;
-      color: var(--text-subtle);
+    .seq-step.active-step {
+      background: var(--border);
+      color: #ffffff;
+      border-color: var(--border);
     }
 
     /* STAGE 5: LOW LEVEL DESIGN (LLD) */
@@ -663,7 +659,7 @@
       padding: 16px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .lld-box {
@@ -727,7 +723,7 @@
     /* STAGE 7: API & EVENT DESIGN */
     .api-card {
       border: 1.5px solid var(--border);
-      padding: 16px;
+      padding: 18px;
       background: var(--surface);
       margin-bottom: 18px;
     }
@@ -735,7 +731,7 @@
     .api-endpoint-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       font-family: var(--font-mono);
       font-size: 14px;
       font-weight: 800;
@@ -748,22 +744,23 @@
     .api-method {
       background: var(--border);
       color: #ffffff;
-      padding: 2px 6px;
+      padding: 2px 8px;
       font-size: 11px;
+      font-weight: 800;
     }
 
     .version-tag {
       font-family: var(--font-mono);
       font-size: 12px;
       color: var(--text-muted);
-      margin-left: 10px;
+      margin-left: 6px;
     }
 
     .event-stream-row {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 8px;
       margin: 10px 0;
     }
 
@@ -772,8 +769,9 @@
       padding: 8px 12px;
       font-family: var(--font-mono);
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       background: var(--surface-subtle);
+      transition: all 0.2s ease;
     }
 
     .event-node.failure-node {
@@ -791,7 +789,7 @@
 
     .tradeoff-table-wrap {
       border: 1.5px solid var(--border);
-      max-height: 400px;
+      max-height: 420px;
       overflow-y: auto;
     }
 
@@ -831,9 +829,11 @@
 
     .final-arrow {
       text-align: center;
-      font-size: 11px;
+      font-size: 12px;
       color: var(--text-subtle);
       line-height: 1;
+      font-family: var(--font-mono);
+      font-weight: 900;
     }
 
     .guarantees-banner {
@@ -858,7 +858,7 @@
       list-style: none;
       font-family: var(--font-mono);
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .guarantees-list li {
@@ -873,13 +873,13 @@
     .core-takeaway {
       margin-top: 24px;
       border: 2px solid var(--border);
-      padding: 16px 20px;
+      padding: 18px 22px;
       background: var(--surface-accent);
       font-size: 15px;
       font-weight: 700;
       text-align: center;
       font-style: italic;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     /* FOOTER */
@@ -893,6 +893,8 @@
       font-family: var(--font-mono);
       font-size: 12px;
       color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     /* RESPONSIVE DESIGN */
@@ -919,13 +921,13 @@
         FLASH SALE SIMULATION
       </div>
       <div class="hackathon-tag">
-        SYSTEM DESIGN HACKATHON // SALESTORM v1.0
+        SYSTEM DESIGN HACKATHON // SALESTORM
       </div>
     </div>
 
     <h1 class="project-title">SALESTORM – System Design Simulation</h1>
     <p class="simulation-lead">
-      Visual walkthrough of the 8 core architecture stages engineered for high-concurrency flash sales.
+      Step-by-step visual demonstration of our 8-stage high-concurrency flash sale architecture.
     </p>
 
     <div class="burst-metrics">
@@ -942,8 +944,8 @@
         <div class="metric-val">No Overselling (Stock &ge; 0)</div>
       </div>
       <div class="metric-card">
-        <div class="metric-label">Concurrency Model</div>
-        <div class="metric-val">Hybrid (RateLimit + Queue + Atomic)</div>
+        <div class="metric-label">Architecture Goal</div>
+        <div class="metric-val">Graceful Degradation</div>
       </div>
     </div>
   </header>
@@ -1020,42 +1022,42 @@
     <!-- ================= STAGE 1 ================= -->
     <div class="stage-content" id="stage-1-view">
       <div class="stage-header">
-        <div class="stage-kicker">Stage 01 // Problem Scope</div>
+        <div class="stage-kicker">Stage 01 // Requirement Analysis</div>
         <h2 class="stage-title">Requirement Analysis</h2>
         <p class="stage-summary">
-          10,000 customers burst concurrently at 00:00:00 to purchase a flash sale drop with strictly 100 available units. The absolute system boundary: zero overselling and immediate degradation handling.
+          10,000 customers burst concurrently at 00:00:00 to purchase a flash sale drop with strictly 100 available units. The absolute system directive: zero overselling and immediate graceful rejection of 9,900 requests.
         </p>
       </div>
 
       <div class="req-grid">
         <div class="req-card">
-          <div class="req-card-label">Concurrent Users</div>
+          <div class="req-card-label">Users</div>
           <div class="req-card-value">10,000</div>
-          <div class="req-card-desc">Instantaneous burst traffic at flash sale launch.</div>
+          <div class="req-card-desc">Simultaneous purchase requests hitting the gateway.</div>
         </div>
         <div class="req-card">
-          <div class="req-card-label">Total Inventory Available</div>
+          <div class="req-card-label">Inventory</div>
           <div class="req-card-value">100</div>
-          <div class="req-card-desc">Finite physical inventory allocated in warehouse.</div>
+          <div class="req-card-desc">Available physical units in the warehouse.</div>
         </div>
         <div class="req-card">
-          <div class="req-card-label">System Prime Directive</div>
+          <div class="req-card-label">Goal</div>
           <div class="req-card-value">No Overselling</div>
-          <div class="req-card-desc">Inventory count must NEVER drop below 0 under any race condition.</div>
+          <div class="req-card-desc">Under no circumstance may stock become negative (&ge; 0).</div>
         </div>
       </div>
 
       <div class="funnel-demo-box">
         <div class="funnel-headline">
-          10,000 requests &rarr; 100 units (100:1 Contention Funnel)
+          10,000 requests &rarr; 100 units
         </div>
         <div class="funnel-canvas-wrap">
           <canvas id="stage1-canvas" class="funnel-canvas"></canvas>
         </div>
         <div style="display: flex; justify-content: space-between; margin-top: 10px; font-family: var(--font-mono); font-size: 12px; color: var(--text-muted);">
-          <span>[Incoming: 10,000 Concurrent Hits]</span>
-          <span>[Contention Funnel Gateway]</span>
-          <span>[Confirmed: Strictly 100 Allocations]</span>
+          <span>[10,000 Incoming Requests]</span>
+          <span>[Contention Funnel / Admission Gate]</span>
+          <span>[100 Successful Slots Allocated]</span>
         </div>
       </div>
     </div>
@@ -1063,62 +1065,62 @@
     <!-- ================= STAGE 2 ================= -->
     <div class="stage-content" id="stage-2-view" style="display: none;">
       <div class="stage-header">
-        <div class="stage-kicker">Stage 02 // System Topology</div>
+        <div class="stage-kicker">Stage 02 // Architecture Design</div>
         <h2 class="stage-title">Architecture Design</h2>
         <p class="stage-summary">
-          End-to-end layered architecture decoupling ingress traffic, isolating stateful components, and protecting transactional databases from direct catastrophic connection pool exhaustion.
+          A simple, resilient multi-tier topology protecting transactional storage from direct connection pool exhaustion and buffering flash demand.
         </p>
       </div>
 
       <div class="arch-flow-diagram">
         <div class="arch-level-box" id="node-customer">
-          <span>Customer Clients</span>
-          <span class="role">10,000 Mobile / Web Users</span>
+          <span class="title">Customer</span>
+          <span class="role">10,000 Web &amp; Mobile Clients</span>
         </div>
-        <div class="flow-arrow">&darr;</div>
+        <div class="flow-arrow-down">&darr;</div>
 
         <div class="arch-level-box" id="node-gateway">
-          <span>API Gateway</span>
-          <span class="role">Authentication, Token Bucket Rate Limiting</span>
+          <span class="title">API Gateway</span>
+          <span class="role">Authentication, SSL Termination, Token Bucket</span>
         </div>
-        <div class="flow-arrow">&darr;</div>
+        <div class="flow-arrow-down">&darr;</div>
 
         <div class="arch-level-box" id="node-lb">
-          <span>Load Balancer</span>
+          <span class="title">Load Balancer</span>
           <span class="role">Layer 7 Traffic Distribution</span>
         </div>
-        <div class="flow-arrow">&darr;</div>
+        <div class="flow-arrow-down">&darr;</div>
 
         <div class="arch-level-box" id="node-services">
-          <span>Core Microservices</span>
-          <span class="role">Inventory, Order, Payment Services</span>
+          <span class="title">Services</span>
+          <span class="role">Inventory, Order, &amp; Payment Microservices</span>
         </div>
-        <div class="flow-arrow">&darr;</div>
+        <div class="flow-arrow-down">&darr;</div>
 
         <div class="arch-level-box" id="node-db-mq">
-          <span>Database / Message Queue</span>
-          <span class="role">Redis Lua, Kafka Cluster, Primary Relational DB</span>
+          <span class="title">Database / Message Queue</span>
+          <span class="role">Kafka Message Bus &amp; Redis / PostgreSQL Cluster</span>
         </div>
-        <div class="flow-arrow">&darr;</div>
+        <div class="flow-arrow-down">&darr;</div>
 
         <div class="arch-level-box" id="node-external">
-          <span>External Services</span>
+          <span class="title">External Services</span>
           <span class="role">Payment Gateways &amp; Third-Party Logistics</span>
         </div>
       </div>
 
-      <div style="border: 1px solid var(--border-light); padding: 12px 16px; background: var(--surface-subtle); font-family: var(--font-mono); font-size: 12px; text-align: center;">
-        Traffic cleanly cascades from Gateway through Queues before reaching storage, preventing database crashing.
+      <div style="border: 1px solid var(--border-light); padding: 12px 16px; background: var(--surface-subtle); font-family: var(--font-mono); font-size: 12px; text-align: center; margin-top: 14px;">
+        Layered decoupling ensures client spikes never crash internal relational databases.
       </div>
     </div>
 
     <!-- ================= STAGE 3 ================= -->
     <div class="stage-content" id="stage-3-view" style="display: none;">
       <div class="stage-header">
-        <div class="stage-kicker">Stage 03 // Critical Concurrency Engine</div>
+        <div class="stage-kicker">Stage 03 // Concurrency &amp; Inventory Design (Core Simulation)</div>
         <h2 class="stage-title">Concurrency &amp; Inventory Design</h2>
         <p class="stage-summary">
-          The core mechanism of Salestorm: 10,000 requests pass through multi-tier validation. Atomic decrements strictly gate reservations so stock never drops below 0.
+          10,000 requests cascade through Rate Limiting, Message Queue, and Atomic Transactions. Only 100 units are reserved; 9,900 are safely rejected. Inventory never becomes negative.
         </p>
       </div>
 
@@ -1126,7 +1128,7 @@
         <!-- METERS -->
         <div class="concurrency-meters">
           <div class="c-meter">
-            <div class="c-label">Incoming Requests</div>
+            <div class="c-label">10,000 Requests</div>
             <div class="c-num" id="s3-incoming">10,000</div>
             <div class="c-status">Bursted concurrently</div>
           </div>
@@ -1138,12 +1140,12 @@
           <div class="c-meter">
             <div class="c-label">Successful Reservations</div>
             <div class="c-num" id="s3-success">0</div>
-            <div class="c-status">Claimed Units</div>
+            <div class="c-status">Target: Exactly 100</div>
           </div>
           <div class="c-meter">
             <div class="c-label">Rejected / Out of Stock</div>
             <div class="c-num" id="s3-rejected">0</div>
-            <div class="c-status">Dropped or 429 Shed</div>
+            <div class="c-status">Target: Exactly 9,900</div>
           </div>
         </div>
 
@@ -1156,7 +1158,7 @@
             </span>
           </div>
           <div class="stock-badge" id="s3-badge">
-            Inventory = 100 // Safe
+            Available Stock = 100 // Ready
           </div>
         </div>
 
@@ -1165,58 +1167,58 @@
           <div class="pipe-step" id="pstep-1">
             <div class="pipe-num">1</div>
             <div class="pipe-name">10,000 Requests</div>
-            <div class="pipe-role">Concurrent HTTP requests arrive at ingress</div>
-            <div class="pipe-count" id="pc-1">10,000 Req</div>
+            <div class="pipe-role">Concurrent purchase requests hit the platform</div>
+            <div class="pipe-count" id="pc-1">10,000 Ingress</div>
           </div>
 
           <div class="pipe-step" id="pstep-2">
             <div class="pipe-num">2</div>
             <div class="pipe-name">Rate Limiter</div>
-            <div class="pipe-role">Token Bucket throttles flood; sheds abusive / bot bursts</div>
+            <div class="pipe-role">Token Bucket &amp; IP rate limiting sheds malicious/bot traffic</div>
             <div class="pipe-count" id="pc-2">Filtered: In-Flight</div>
           </div>
 
           <div class="pipe-step" id="pstep-3">
             <div class="pipe-num">3</div>
             <div class="pipe-name">Message Queue</div>
-            <div class="pipe-role">Kafka partition buffers &amp; serializes purchase intents</div>
+            <div class="pipe-role">Buffers incoming purchase intents in FIFO order</div>
             <div class="pipe-count" id="pc-3">FIFO Partitioned</div>
           </div>
 
           <div class="pipe-step" id="pstep-4">
             <div class="pipe-num">4</div>
             <div class="pipe-name">Inventory Service</div>
-            <div class="pipe-role">Worker pool consumes batches for verification</div>
+            <div class="pipe-role">Dedicated worker pool processes queued reservation intents</div>
             <div class="pipe-count" id="pc-4">Workers Active</div>
           </div>
 
           <div class="pipe-step" id="pstep-5">
             <div class="pipe-num">5</div>
             <div class="pipe-name">Idempotency Check</div>
-            <div class="pipe-role">Redis <code>SETNX (idempotency_key)</code> drops duplicate clicks</div>
-            <div class="pipe-count" id="pc-5">Duplicates: 0</div>
+            <div class="pipe-role">Unique request token verification drops accidental double-clicks</div>
+            <div class="pipe-count" id="pc-5">No Duplicates</div>
           </div>
 
           <div class="pipe-step" id="pstep-6">
             <div class="pipe-num">6</div>
             <div class="pipe-name">Atomic DB Transaction</div>
-            <div class="pipe-role">Redis Lua / SQL conditional decrement: checks available &gt; 0</div>
+            <div class="pipe-role">Lua script / SQL atomic decrement: verifies stock &gt; 0 before lock</div>
             <div class="pipe-count" id="pc-6">Atomic Guard</div>
           </div>
 
           <div class="pipe-step" id="pstep-7">
             <div class="pipe-num">7</div>
-            <div class="pipe-name">Reservation Created</div>
-            <div class="pipe-role">10-minute hold placed; out-of-stock returned to excess traffic</div>
+            <div class="pipe-name">Reservation</div>
+            <div class="pipe-role">Temporary 10-minute hold placed; out-of-stock returned to remaining</div>
             <div class="pipe-count" id="pc-7" style="font-weight: 800;">100 Claimed / 9,900 Rejected</div>
           </div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px; flex-wrap: wrap; gap: 8px;">
           <button class="btn" id="s3-rerun-btn">
-            &#9658; Re-run Stage 3 Concurrency Burst Test
+            &#9658; Re-run Concurrency Simulation
           </button>
-          <span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-muted);" id="s3-log-msg">
+          <span style="font-family: var(--font-mono); font-size: 13px; font-weight: 700;" id="s3-log-msg">
             Simulation ready.
           </span>
         </div>
@@ -1226,10 +1228,10 @@
     <!-- ================= STAGE 4 ================= -->
     <div class="stage-content" id="stage-4-view" style="display: none;">
       <div class="stage-header">
-        <div class="stage-kicker">Stage 04 // Transaction Lifecycle</div>
+        <div class="stage-kicker">Stage 04 // Payment &amp; Order Design</div>
         <h2 class="stage-title">Payment &amp; Order Design</h2>
         <p class="stage-summary">
-          Temporary inventory reservation locks stock for 10 minutes. If payment succeeds, order confirms; on card failure or payment timeout, stock is immediately replenished or reconciled.
+          Demonstrating both the happy checkout path and robust edge-case failure recoveries (Payment Failure with reservation release, and Payment Timeout with reconciliation).
         </p>
       </div>
 
@@ -1237,46 +1239,46 @@
         <!-- SUCCESS PATH -->
         <div class="path-card">
           <div class="path-card-title">
-            <span>Primary Path: Success (80%)</span>
-            <span class="path-tag">COMMITTED</span>
+            <span>Primary Flow: Success</span>
+            <span class="path-tag">ORDER CONFIRMED</span>
           </div>
 
-          <div class="seq-step">1. Temporary Stock Reservation (10 min TTL)</div>
-          <div class="seq-arrow-down">&darr;</div>
-          <div class="seq-step">2. User Redirected to Payment Gateway</div>
-          <div class="seq-arrow-down">&darr;</div>
-          <div class="seq-step">3. Payment Success Callback Verified</div>
-          <div class="seq-arrow-down">&darr;</div>
-          <div class="seq-step">4. Order Record Created in Database</div>
-          <div class="seq-arrow-down">&darr;</div>
-          <div class="seq-step">5. Order Confirmed &amp; Customer Notified</div>
+          <div class="seq-step" id="s4-step-1">Reservation</div>
+          <div class="flow-arrow-down">&darr;</div>
+          <div class="seq-step" id="s4-step-2">Payment</div>
+          <div class="flow-arrow-down">&darr;</div>
+          <div class="seq-step" id="s4-step-3">Payment Success</div>
+          <div class="flow-arrow-down">&darr;</div>
+          <div class="seq-step" id="s4-step-4">Order Created</div>
+          <div class="flow-arrow-down">&darr;</div>
+          <div class="seq-step" id="s4-step-5" style="border: 2px solid var(--border); font-weight: 800;">Order Confirmed</div>
         </div>
 
-        <!-- FAILURE & RECOVERY PATHS -->
+        <!-- FAILURE PATHS -->
         <div class="path-card">
           <div class="path-card-title">
-            <span>Fallback Paths: Failure &amp; Timeout</span>
-            <span class="path-tag">RECOVERED</span>
+            <span>Failure &amp; Timeout Recovery Paths</span>
+            <span class="path-tag">SELF HEALING</span>
           </div>
 
-          <div style="margin-bottom: 16px;">
-            <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px;">
-              SCENARIO A: PAYMENT REJECTED
+          <div style="margin-bottom: 20px;">
+            <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 800; color: var(--text-muted); margin-bottom: 8px;">
+              FAILURE PATH A: PAYMENT REJECTED
             </div>
-            <div class="seq-step">Payment Failed &rarr; Webhook Triggered</div>
-            <div class="seq-arrow-down">&darr;</div>
-            <div class="seq-step">Release Reservation &rarr; Stock Returned (+1)</div>
+            <div class="seq-step">Payment Failed</div>
+            <div class="flow-arrow-down">&darr;</div>
+            <div class="seq-step" style="border: 1.5px solid var(--border); font-weight: 800;">Release Reservation (Stock replenished +1)</div>
           </div>
 
           <div>
-            <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px;">
-              SCENARIO B: PAYMENT TIMEOUT / NETWORK PARTITION
+            <div style="font-family: var(--font-mono); font-size: 11px; font-weight: 800; color: var(--text-muted); margin-bottom: 8px;">
+              FAILURE PATH B: PAYMENT TIMEOUT
             </div>
-            <div class="seq-step">Payment Timeout (TTL Expires)</div>
-            <div class="seq-arrow-down">&darr;</div>
-            <div class="seq-step">Verify Payment Status with Gateway API</div>
-            <div class="seq-arrow-down">&darr;</div>
-            <div class="seq-step">Reconciliation: If uncharged, release stock. If charged, fulfill order.</div>
+            <div class="seq-step">Payment Timeout</div>
+            <div class="flow-arrow-down">&darr;</div>
+            <div class="seq-step">Verify Payment</div>
+            <div class="flow-arrow-down">&darr;</div>
+            <div class="seq-step" style="border: 1.5px solid var(--border); font-weight: 800;">Reconciliation</div>
           </div>
         </div>
       </div>
@@ -1285,87 +1287,81 @@
     <!-- ================= STAGE 5 ================= -->
     <div class="stage-content" id="stage-5-view" style="display: none;">
       <div class="stage-header">
-        <div class="stage-kicker">Stage 05 // Modular Class Architecture</div>
-        <h2 class="stage-title">Low-Level Design (LLD)</h2>
+        <div class="stage-kicker">Stage 05 // Low-Level Design</div>
+        <h2 class="stage-title">Low-Level Design</h2>
         <p class="stage-summary">
-          Clean boundary encapsulation across the three foundational domains: Inventory, Payment, and Order. Each follows strict Controller &rarr; Service &rarr; Repository tiering.
+          Clean component and class representation showing strict separation of concerns across the three core domains: Inventory, Payment, and Order.
         </p>
       </div>
 
       <div class="lld-columns">
-        <!-- DOMAIN 1: INVENTORY -->
+        <!-- COLUMN 1: INVENTORY -->
         <div class="lld-col">
           <div class="lld-header">Inventory Domain</div>
           <div class="lld-body">
             <div class="lld-box">
               <div class="lld-box-name">InventoryController</div>
-              <div class="lld-box-method">+ reserve(productId, userId)</div>
-              <div class="lld-box-method">+ release(reservationId)</div>
+              <div class="lld-box-method">+ reserveItem(productId, userId)</div>
             </div>
-            <div class="seq-arrow-down">&darr;</div>
+            <div class="flow-arrow-down">&darr;</div>
             <div class="lld-box">
               <div class="lld-box-name">ReservationService</div>
-              <div class="lld-box-method">+ checkAndLockStock()</div>
               <div class="lld-box-method">+ createTemporaryHold()</div>
+              <div class="lld-box-method">+ releaseHold(reservationId)</div>
             </div>
-            <div class="seq-arrow-down">&darr;</div>
+            <div class="flow-arrow-down">&darr;</div>
             <div class="lld-box">
               <div class="lld-box-name">InventoryRepository</div>
               <div class="lld-box-method">+ atomicDecrementStock()</div>
-              <div class="lld-box-method">+ restoreStock()</div>
             </div>
-            <div class="seq-arrow-down">&darr;</div>
-            <div class="lld-box" style="background: var(--surface); border: 2px solid var(--border);">
-              <div class="lld-box-name">Database (Redis + SQL)</div>
-              <div class="lld-box-method">Redis Lua Hash + Relational Store</div>
+            <div class="flow-arrow-down">&darr;</div>
+            <div class="lld-box" style="border: 2px solid var(--border); font-weight: 800;">
+              <div class="lld-box-name">Database</div>
+              <div class="lld-box-method">Redis Lua Hash + Relational Tables</div>
             </div>
           </div>
         </div>
 
-        <!-- DOMAIN 2: PAYMENT -->
+        <!-- COLUMN 2: PAYMENT -->
         <div class="lld-col">
           <div class="lld-header">Payment Domain</div>
           <div class="lld-body">
             <div class="lld-box">
               <div class="lld-box-name">PaymentController</div>
-              <div class="lld-box-method">+ initiatePayment(orderId)</div>
-              <div class="lld-box-method">+ handleWebhook(payload)</div>
+              <div class="lld-box-method">+ processPayment(paymentInfo)</div>
             </div>
-            <div class="seq-arrow-down">&darr;</div>
+            <div class="flow-arrow-down">&darr;</div>
             <div class="lld-box">
               <div class="lld-box-name">PaymentService</div>
-              <div class="lld-box-method">+ charge(paymentMethod)</div>
+              <div class="lld-box-method">+ charge(amount, token)</div>
               <div class="lld-box-method">+ verifyPaymentStatus()</div>
             </div>
-            <div class="seq-arrow-down">&darr;</div>
+            <div class="flow-arrow-down">&darr;</div>
             <div class="lld-box">
               <div class="lld-box-name">PaymentRepository</div>
-              <div class="lld-box-method">+ recordTransaction()</div>
-              <div class="lld-box-method">+ updateTxState()</div>
+              <div class="lld-box-method">+ saveTransactionRecord()</div>
             </div>
           </div>
         </div>
 
-        <!-- DOMAIN 3: ORDER -->
+        <!-- COLUMN 3: ORDER -->
         <div class="lld-col">
           <div class="lld-header">Order Domain</div>
           <div class="lld-body">
             <div class="lld-box">
               <div class="lld-box-name">OrderController</div>
-              <div class="lld-box-method">+ createOrder(reserveId)</div>
-              <div class="lld-box-method">+ getOrderStatus(id)</div>
+              <div class="lld-box-method">+ createOrder(reservationId)</div>
             </div>
-            <div class="seq-arrow-down">&darr;</div>
+            <div class="flow-arrow-down">&darr;</div>
             <div class="lld-box">
               <div class="lld-box-name">OrderService</div>
-              <div class="lld-box-method">+ buildOrder(details)</div>
-              <div class="lld-box-method">+ transitionState(state)</div>
+              <div class="lld-box-method">+ confirmOrder(orderId)</div>
+              <div class="lld-box-method">+ cancelOrder(orderId)</div>
             </div>
-            <div class="seq-arrow-down">&darr;</div>
+            <div class="flow-arrow-down">&darr;</div>
             <div class="lld-box">
               <div class="lld-box-name">OrderRepository</div>
               <div class="lld-box-method">+ insertOrderRecord()</div>
-              <div class="lld-box-method">+ findById(orderId)</div>
             </div>
           </div>
         </div>
@@ -1375,10 +1371,10 @@
     <!-- ================= STAGE 6 ================= -->
     <div class="stage-content" id="stage-6-view" style="display: none;">
       <div class="stage-header">
-        <div class="stage-kicker">Stage 06 // Software Engineering Principles</div>
+        <div class="stage-kicker">Stage 06 // SOLID &amp; Design Patterns</div>
         <h2 class="stage-title">SOLID &amp; Design Patterns</h2>
         <p class="stage-summary">
-          Mapping battle-tested architectural and structural design patterns to their precise implementation roles within Salestorm.
+          Key software engineering patterns applied directly to flash-sale requirements.
         </p>
       </div>
 
@@ -1386,61 +1382,50 @@
         <table class="pattern-table">
           <thead>
             <tr>
-              <th style="width: 25%;">Design Pattern</th>
-              <th style="width: 40%;">Where It Is Used in Salestorm</th>
-              <th style="width: 35%;">Engineering Benefit</th>
+              <th style="width: 35%;">Pattern</th>
+              <th style="width: 65%;">Where it is used</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="pattern-name">Producer-Consumer</td>
-              <td>Purchase Queue (Kafka / RabbitMQ)</td>
-              <td>Absorbs the 10,000 concurrent request shockwave</td>
+              <td>Purchase Queue</td>
             </tr>
             <tr>
               <td class="pattern-name">Strategy</td>
-              <td>Payment Gateways (Stripe, Razorpay, Mock)</td>
-              <td>Swappable processing engines without core code edits</td>
+              <td>Payment Gateways / Pricing Rules</td>
             </tr>
             <tr>
               <td class="pattern-name">State</td>
-              <td>Reservation &amp; Order Lifecycle</td>
-              <td>Guarantees deterministic state changes (HOLD &rarr; PAID)</td>
+              <td>Reservation / Order Lifecycle</td>
             </tr>
             <tr>
               <td class="pattern-name">Idempotency</td>
-              <td>Duplicate Purchase Prevention</td>
-              <td>Protects against double-billing on network retries</td>
+              <td>Duplicate Prevention</td>
             </tr>
             <tr>
               <td class="pattern-name">Saga</td>
-              <td>Payment + Order Failure Rollback</td>
-              <td>Coordinates distributed transactions across microservices</td>
+              <td>Payment + Order Failure</td>
             </tr>
             <tr>
               <td class="pattern-name">Outbox</td>
-              <td>Reliable Event Publishing</td>
-              <td>Guarantees DB writes and messaging events commit atomically</td>
+              <td>Reliable Events</td>
             </tr>
             <tr>
               <td class="pattern-name">Adapter</td>
-              <td>External Payment Gateways &amp; SMS</td>
-              <td>Standardizes vendor SDKs behind uniform interfaces</td>
+              <td>External Payment Gateways</td>
             </tr>
             <tr>
               <td class="pattern-name">Circuit Breaker</td>
-              <td>External Downstream Dependencies</td>
-              <td>Fails fast when external payment gateways stall</td>
+              <td>External Services</td>
             </tr>
             <tr>
               <td class="pattern-name">Repository</td>
               <td>Data Access Layer</td>
-              <td>Decouples persistence logic from core domain rules</td>
             </tr>
             <tr>
               <td class="pattern-name">Facade</td>
-              <td>Checkout Orchestrator</td>
-              <td>Provides one unified endpoint for complex checkout sub-calls</td>
+              <td>Checkout Orchestration Subsystem</td>
             </tr>
           </tbody>
         </table>
@@ -1450,10 +1435,10 @@
     <!-- ================= STAGE 7 ================= -->
     <div class="stage-content" id="stage-7-view" style="display: none;">
       <div class="stage-header">
-        <div class="stage-kicker">Stage 07 // Contracts &amp; Messaging</div>
+        <div class="stage-kicker">Stage 07 // API &amp; Event Design</div>
         <h2 class="stage-title">API &amp; Event Design</h2>
         <p class="stage-summary">
-          Strict API contracts with explicit versioning and an asynchronous event bus driving order fulfillment, shipping, and automated Dead Letter Queue (DLQ) retry pipelines.
+          Versioned API endpoint specification, asynchronous event cascade for order delivery, and failure retry/DLQ pipeline.
         </p>
       </div>
 
@@ -1462,47 +1447,47 @@
         <div class="api-endpoint-badge">
           <span class="api-method">POST</span>
           <span>/salestorm/v1/purchase</span>
-          <span class="version-tag">[Versioned API Contract]</span>
         </div>
-        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); margin-bottom: 8px;">
-          API Evolution Path: <code>/salestorm/v1/...</code> (Synchronous hold return) &rarr; <code>/salestorm/v2/...</code> (Async ticket polling / WebSocket stream)
+        <div style="font-family: var(--font-mono); font-size: 13px; color: var(--text-muted); margin-bottom: 6px;">
+          <strong>API Versioning:</strong>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--text-muted);">
+          &bull; <code>/salestorm/v1/...</code> &mdash; Synchronous reservation validation<br>
+          &bull; <code>/salestorm/v2/...</code> &mdash; Asynchronous queue-ticket polling &amp; WebSockets
         </div>
       </div>
 
       <!-- HAPPY EVENT STREAM -->
       <div class="api-card">
-        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 800; text-transform: uppercase; margin-bottom: 10px;">
-          Happy Path Event Pipeline
+        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 800; text-transform: uppercase; margin-bottom: 12px;">
+          Order Event Stream:
         </div>
         <div class="event-stream-row">
           <div class="event-node">ReservationCreated</div>
-          <div class="flow-arrow">&rarr;</div>
+          <div style="font-family: var(--font-mono); font-weight: 900;">&rarr;</div>
           <div class="event-node">PaymentSucceeded</div>
-          <div class="flow-arrow">&rarr;</div>
+          <div style="font-family: var(--font-mono); font-weight: 900;">&rarr;</div>
           <div class="event-node">OrderCreated</div>
-          <div class="flow-arrow">&rarr;</div>
+          <div style="font-family: var(--font-mono); font-weight: 900;">&rarr;</div>
           <div class="event-node">ShipmentCreated</div>
-          <div class="flow-arrow">&rarr;</div>
-          <div class="event-node">OrderDelivered</div>
+          <div style="font-family: var(--font-mono); font-weight: 900;">&rarr;</div>
+          <div class="event-node" style="border: 2px solid var(--border);">OrderDelivered</div>
         </div>
       </div>
 
       <!-- FAULT EVENT STREAM -->
       <div class="api-card">
-        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 800; text-transform: uppercase; margin-bottom: 10px;">
-          Fault-Tolerant &amp; DLQ Recovery Pipeline
+        <div style="font-family: var(--font-mono); font-size: 12px; font-weight: 800; text-transform: uppercase; margin-bottom: 12px;">
+          Failure &amp; DLQ Event Stream:
         </div>
         <div class="event-stream-row">
-          <div class="event-node failure-node">Failure Detected</div>
-          <div class="flow-arrow">&rarr;</div>
-          <div class="event-node">Exponential Retry (3x)</div>
-          <div class="flow-arrow">&rarr;</div>
-          <div class="event-node failure-node">DLQ (Dead Letter Queue)</div>
-          <div class="flow-arrow">&rarr;</div>
-          <div class="event-node">Reprocessing &amp; Alerting</div>
-        </div>
-        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 10px;">
-          Poison pill messages do not halt the main purchase queue; unprocessable events quarantine safely to DLQ.
+          <div class="event-node failure-node">Failure</div>
+          <div style="font-family: var(--font-mono); font-weight: 900;">&rarr;</div>
+          <div class="event-node">Retry</div>
+          <div style="font-family: var(--font-mono); font-weight: 900;">&rarr;</div>
+          <div class="event-node failure-node" style="border: 2px dashed var(--border);">DLQ</div>
+          <div style="font-family: var(--font-mono); font-weight: 900;">&rarr;</div>
+          <div class="event-node">Reprocessing</div>
         </div>
       </div>
     </div>
@@ -1510,10 +1495,10 @@
     <!-- ================= STAGE 8 ================= -->
     <div class="stage-content" id="stage-8-view" style="display: none;">
       <div class="stage-header">
-        <div class="stage-kicker">Stage 08 // Architectural Balance &amp; Summary</div>
+        <div class="stage-kicker">Stage 08 // Architecture Decisions &amp; Trade-offs</div>
         <h2 class="stage-title">Architecture Decisions &amp; Trade-offs</h2>
         <p class="stage-summary">
-          Every architectural choice trades one constraint for another. Below is our formal decision matrix and the final end-to-end architecture pipeline.
+          Comprehensive balance of architectural choices against engineering trade-offs, followed by our final architecture and guarantees.
         </p>
       </div>
 
@@ -1523,54 +1508,54 @@
           <table class="pattern-table">
             <thead>
               <tr>
-                <th>Decision</th>
-                <th>Trade-off</th>
+                <th style="width: 50%;">Decision</th>
+                <th style="width: 50%;">Trade-off</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td class="pattern-name">Hybrid Concurrency</td>
-                <td>Increased System Complexity</td>
+                <td>Complexity</td>
               </tr>
               <tr>
                 <td class="pattern-name">Message Queue</td>
-                <td>Added Latency (Asynchronous flow)</td>
+                <td>Latency</td>
               </tr>
               <tr>
                 <td class="pattern-name">Atomic Transaction</td>
-                <td>Contention on Hot DB Rows</td>
+                <td>Contention</td>
               </tr>
               <tr>
-                <td class="pattern-name">Idempotency Keys</td>
-                <td>Storage Overhead (Redis TTL keys)</td>
+                <td class="pattern-name">Idempotency</td>
+                <td>Storage</td>
               </tr>
               <tr>
                 <td class="pattern-name">Temporary Reservation</td>
-                <td>Expiry &amp; Lock Release Management</td>
+                <td>Expiry Management</td>
               </tr>
               <tr>
                 <td class="pattern-name">Async Events</td>
-                <td>Eventual Consistency vs Immediate</td>
+                <td>Eventual Consistency</td>
               </tr>
               <tr>
                 <td class="pattern-name">Outbox Pattern</td>
-                <td>Storage Overhead &amp; DB Poller Load</td>
+                <td>Storage Overhead</td>
               </tr>
               <tr>
                 <td class="pattern-name">Retry Mechanism</td>
-                <td>Processing Delay on Transient Errors</td>
+                <td>Processing Delay</td>
               </tr>
               <tr>
-                <td class="pattern-name">DLQ (Dead Letter Queue)</td>
-                <td>Operational Overhead for Inspection</td>
+                <td class="pattern-name">DLQ</td>
+                <td>Operational Overhead</td>
               </tr>
               <tr>
                 <td class="pattern-name">Circuit Breaker</td>
-                <td>Graceful Degradation vs Immediate Failure</td>
+                <td>Availability</td>
               </tr>
               <tr>
                 <td class="pattern-name">API Versioning</td>
-                <td>Maintenance Overhead for Old Endpoints</td>
+                <td>Maintenance Overhead</td>
               </tr>
             </tbody>
           </table>
@@ -1578,7 +1563,7 @@
 
         <!-- FINAL ARCHITECTURE PIPELINE -->
         <div class="final-arch-box">
-          <div class="final-arch-title">Final End-to-End Architecture Flow</div>
+          <div class="final-arch-title">FINAL ARCHITECTURE</div>
           <div class="final-arch-flow">
             <div class="final-node">Rate Limiter</div>
             <div class="final-arrow">&darr;</div>
@@ -1586,22 +1571,22 @@
             <div class="final-arrow">&darr;</div>
             <div class="final-node">Inventory Service</div>
             <div class="final-arrow">&darr;</div>
-            <div class="final-node">Idempotency Engine</div>
+            <div class="final-node">Idempotency</div>
             <div class="final-arrow">&darr;</div>
-            <div class="final-node">Atomic DB Transaction</div>
+            <div class="final-node">Atomic Transaction</div>
             <div class="final-arrow">&darr;</div>
-            <div class="final-node">Temporary Reservation (10 min hold)</div>
+            <div class="final-node">Temporary Reservation</div>
             <div class="final-arrow">&darr;</div>
-            <div class="final-node">Payment Processing</div>
+            <div class="final-node">Payment</div>
             <div class="final-arrow">&darr;</div>
-            <div class="final-node" style="border: 2px solid var(--border); background: var(--surface-accent);">Order Confirmed</div>
+            <div class="final-node" style="border: 2px solid var(--border); background: var(--surface-accent);">Order</div>
           </div>
         </div>
       </div>
 
       <!-- FINAL GUARANTEES -->
       <div class="guarantees-banner">
-        <div class="guarantees-heading">Final Architectural Guarantees:</div>
+        <div class="guarantees-heading">Final System Guarantees:</div>
         <ul class="guarantees-list">
           <li>&#10003; High Scalability</li>
           <li>&#10003; Strong Inventory Consistency</li>
@@ -1621,7 +1606,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <div>SALESTORM &bull; System Design Simulation Demo</div>
+    <div>SALESTORM &bull; System Design Hackathon Simulation</div>
     <div>Keyboard Navigation: &larr; Prev | &rarr; Next | Spacebar Play/Pause</div>
   </footer>
 
@@ -1630,7 +1615,7 @@
     (function() {
       // Configuration & State
       const TOTAL_STAGES = 8;
-      const STAGE_DURATION_MS = 7000; // 7 seconds per stage during autoplay
+      const STAGE_DURATION_MS = 6500; // 6.5s per stage during autoplay
       let currentStage = 1;
       let isPlaying = false;
       let timerInterval = null;
@@ -1664,9 +1649,16 @@
       let stage1AnimId = null;
       let stage1Particles = [];
 
+      // Stage 2 Arch Animation State
+      let stage2Timeout = null;
+
       // Stage 3 Concurrency Animation State
       let s3AnimTimer = null;
+      let s3PipeTimer = null;
       let s3IsSimulating = false;
+
+      // Stage 4 Step Animation State
+      let s4Interval = null;
 
       // Initialize
       function init() {
@@ -1728,6 +1720,13 @@
             runStage3Simulation();
           });
         }
+
+        // Window resize adjusts canvas
+        window.addEventListener("resize", () => {
+          if (currentStage === 1) {
+            initStage1Funnel();
+          }
+        });
       }
 
       function goToStage(num) {
@@ -1764,11 +1763,11 @@
           }
         }
 
-        // Prev/Next button states
+        // Button disabled states
         prevBtn.disabled = (currentStage === 1);
         nextBtn.disabled = (currentStage === TOTAL_STAGES);
 
-        // Stage-specific actions
+        // Stage-specific transitions
         handleStageEntry(currentStage);
       }
 
@@ -1804,7 +1803,6 @@
           if (currentStage < TOTAL_STAGES) {
             showStage(currentStage + 1, true);
           } else {
-            // Reached final stage
             pauseSimulation();
             timerFill.style.width = "100%";
           }
@@ -1812,10 +1810,18 @@
       }
 
       function handleStageEntry(stage) {
-        // Stop previous canvas loops if any
+        // Clear loops
         if (stage1AnimId) {
           cancelAnimationFrame(stage1AnimId);
           stage1AnimId = null;
+        }
+        if (stage2Timeout) {
+          clearTimeout(stage2Timeout);
+          stage2Timeout = null;
+        }
+        if (s4Interval) {
+          clearInterval(s4Interval);
+          s4Interval = null;
         }
 
         if (stage === 1) {
@@ -1824,6 +1830,8 @@
           animateArchitectureFlow();
         } else if (stage === 3) {
           runStage3Simulation();
+        } else if (stage === 4) {
+          animateStage4();
         }
       }
 
@@ -1835,24 +1843,21 @@
         if (!canvas) return;
         const ctx = canvas.getContext("2d");
 
-        // Resize canvas to match display size
         const rect = canvas.getBoundingClientRect();
         canvas.width = rect.width;
         canvas.height = rect.height;
 
         stage1Particles = [];
-        const numParticles = 120; // Visual representation of 10,000 stream
-        let confirmedCount = 0;
+        const numParticles = 140;
 
         for (let i = 0; i < numParticles; i++) {
           stage1Particles.push({
-            x: Math.random() * (canvas.width * 0.25),
-            y: Math.random() * (canvas.height - 20) + 10,
-            vx: Math.random() * 2 + 1.5,
+            x: Math.random() * (canvas.width * 0.3),
+            y: Math.random() * (canvas.height - 24) + 12,
+            vx: Math.random() * 2 + 1.6,
             vy: (Math.random() - 0.5) * 0.8,
-            color: "#111111",
             size: 2.5,
-            state: "entering", // entering -> funnel -> passed / rejected
+            state: "entering",
             id: i
           });
         }
@@ -1862,9 +1867,9 @@
 
           const w = canvas.width;
           const h = canvas.height;
-          const funnelX = w * 0.5;
-          const funnelHoleTop = h * 0.4;
-          const funnelHoleBottom = h * 0.6;
+          const funnelX = w * 0.52;
+          const funnelHoleTop = h * 0.38;
+          const funnelHoleBottom = h * 0.62;
 
           // Draw funnel lines (monochrome)
           ctx.strokeStyle = "#111111";
@@ -1873,21 +1878,21 @@
 
           // Top funnel barrier
           ctx.beginPath();
-          ctx.moveTo(w * 0.35, 10);
+          ctx.moveTo(w * 0.32, 10);
           ctx.lineTo(funnelX, funnelHoleTop);
           ctx.stroke();
 
           // Bottom funnel barrier
           ctx.beginPath();
-          ctx.moveTo(w * 0.35, h - 10);
+          ctx.moveTo(w * 0.32, h - 10);
           ctx.lineTo(funnelX, funnelHoleBottom);
           ctx.stroke();
           ctx.setLineDash([]);
 
           // Funnel throat label
           ctx.fillStyle = "#888888";
-          ctx.font = "10px monospace";
-          ctx.fillText("NARROW GATE (100 SLOTS)", funnelX - 60, funnelHoleTop - 8);
+          ctx.font = "11px monospace";
+          ctx.fillText("NARROW GATE [100 UNITS]", funnelX - 65, funnelHoleTop - 8);
 
           // Update & draw particles
           stage1Particles.forEach(p => {
@@ -1895,16 +1900,15 @@
             p.y += p.vy;
 
             // Before funnel barrier
-            if (p.x >= w * 0.35 && p.x < funnelX) {
-              // Guide towards center or deflect
-              if (p.id < 30) {
-                // 30 particles simulate the 100 successful slots
-                if (p.y < funnelHoleTop + 4) p.vy += 0.2;
-                else if (p.y > funnelHoleBottom - 4) p.vy -= 0.2;
+            if (p.x >= w * 0.32 && p.x < funnelX) {
+              if (p.id < 28) {
+                // Admitted particles guided to center slot
+                if (p.y < funnelHoleTop + 6) p.vy += 0.25;
+                else if (p.y > funnelHoleBottom - 6) p.vy -= 0.25;
               } else {
-                // Rejected particles bounce back or fade
+                // Rejected particles bounce back
                 if (p.y <= funnelHoleTop || p.y >= funnelHoleBottom) {
-                  p.vx = -Math.abs(p.vx) * 0.4; // deflect
+                  p.vx = -Math.abs(p.vx) * 0.5;
                   p.state = "rejected";
                 }
               }
@@ -1915,16 +1919,16 @@
             }
 
             // Draw particle
-            ctx.fillStyle = p.state === "rejected" ? "#aaaaaa" : "#111111";
+            ctx.fillStyle = (p.state === "rejected") ? "#b0b0b0" : "#111111";
             ctx.beginPath();
-            ctx.arc(p.x, p.y, p.state === "admitted" ? 3.5 : p.size, 0, Math.PI * 2);
+            ctx.arc(p.x, p.y, (p.state === "admitted") ? 3.5 : p.size, 0, Math.PI * 2);
             ctx.fill();
 
             // Reset loop
             if (p.x > w + 10 || p.x < -10) {
               p.x = Math.random() * (w * 0.15);
-              p.y = Math.random() * (h - 20) + 10;
-              p.vx = Math.random() * 2 + 1.5;
+              p.y = Math.random() * (h - 24) + 12;
+              p.vx = Math.random() * 2 + 1.6;
               p.vy = (Math.random() - 0.5) * 0.8;
               p.state = "entering";
             }
@@ -1964,7 +1968,7 @@
             }
           });
           idx = (idx + 1) % nodes.length;
-          setTimeout(pulseNext, 700);
+          stage2Timeout = setTimeout(pulseNext, 650);
         }
         pulseNext();
       }
@@ -1974,14 +1978,22 @@
       // ==========================================
       function resetStage3Simulation() {
         if (s3AnimTimer) clearInterval(s3AnimTimer);
+        if (s3PipeTimer) clearInterval(s3PipeTimer);
         s3IsSimulating = false;
+
         document.getElementById("s3-incoming").textContent = "10,000";
         document.getElementById("s3-stock").textContent = "100";
         document.getElementById("s3-success").textContent = "0";
         document.getElementById("s3-rejected").textContent = "0";
-        document.getElementById("s3-badge").textContent = "Inventory = 100 // Ready";
+
+        const badgeEl = document.getElementById("s3-badge");
+        badgeEl.textContent = "Available Stock = 100 // Ready";
+        badgeEl.style.background = "var(--surface-accent)";
+        badgeEl.style.color = "var(--text)";
+
         document.getElementById("s3-stock-status").textContent = "Starting Units: 100";
         document.getElementById("s3-log-msg").textContent = "Ready for concurrency run.";
+
         for (let i = 1; i <= 7; i++) {
           const el = document.getElementById(`pstep-${i}`);
           if (el) el.style.background = "var(--surface)";
@@ -2003,10 +2015,10 @@
         let rejectedCount = 0;
         let stepPhase = 1;
 
-        logEl.textContent = "Injecting 10,000 concurrent purchase requests...";
+        logEl.textContent = "Streaming 10,000 concurrent requests...";
 
         // Step by step highlight
-        const pipeInterval = setInterval(() => {
+        s3PipeTimer = setInterval(() => {
           if (stepPhase <= 7) {
             for (let i = 1; i <= 7; i++) {
               const el = document.getElementById(`pstep-${i}`);
@@ -2017,19 +2029,19 @@
             }
             stepPhase++;
           } else {
-            clearInterval(pipeInterval);
+            clearInterval(s3PipeTimer);
           }
-        }, 300);
+        }, 280);
 
-        // Fast counter simulation: exactly 100 decrement, remainder 9,900 rejected
+        // Fast counter simulation: exactly 100 reservations, 9,900 rejected
         const startTime = Date.now();
-        const duration = 2500; // 2.5 seconds total burst
+        const duration = 2400; // 2.4s total burst
 
         s3AnimTimer = setInterval(() => {
           const elapsed = Date.now() - startTime;
           const progress = Math.min(1, elapsed / duration);
 
-          // Easing function for burst
+          // Fast progression with exponential burst feel
           const reservationsNow = Math.floor(progress * 100);
           const rejectedNow = Math.floor(progress * 9900);
 
@@ -2047,7 +2059,7 @@
             badgeEl.style.background = "var(--border)";
             badgeEl.style.color = "#ffffff";
           } else {
-            badgeEl.textContent = `Inventory = ${currentStock} // Safe`;
+            badgeEl.textContent = `Available Stock = ${currentStock} // Safe`;
             badgeEl.style.background = "var(--surface-accent)";
             badgeEl.style.color = "var(--text)";
           }
@@ -2062,9 +2074,42 @@
             badgeEl.style.background = "var(--border)";
             badgeEl.style.color = "#ffffff";
             document.getElementById("s3-stock-status").textContent = "Stock Exhausted (Zero Oversold)";
-            logEl.textContent = "Complete: 100 units strictly claimed. 9,900 rejected safely.";
+            logEl.textContent = "Complete: Successful = 100 | Rejected = 9,900 | Stock = 0";
           }
-        }, 40);
+        }, 35);
+      }
+
+      // ==========================================
+      // STAGE 4: Payment & Order Sequence Animation
+      // ==========================================
+      function animateStage4() {
+        const steps = [
+          "s4-step-1",
+          "s4-step-2",
+          "s4-step-3",
+          "s4-step-4",
+          "s4-step-5"
+        ];
+        steps.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.classList.remove("active-step");
+        });
+
+        let cur = 0;
+        s4Interval = setInterval(() => {
+          if (currentStage !== 4) {
+            clearInterval(s4Interval);
+            return;
+          }
+          steps.forEach((id, idx) => {
+            const el = document.getElementById(id);
+            if (el) {
+              if (idx === cur) el.classList.add("active-step");
+              else el.classList.remove("active-step");
+            }
+          });
+          cur = (cur + 1) % steps.length;
+        }, 800);
       }
 
       // Start on load
